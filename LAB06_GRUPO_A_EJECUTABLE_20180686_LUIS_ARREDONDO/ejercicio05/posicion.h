@@ -3,14 +3,15 @@
 
 class Matriz {
 private:
+    int **cmatriz;
     int buscar;
 public:
-    Matriz(int);
+    Matriz(int**,int);
     ~Matriz();
-    //void crear();
-    //void mostrar();
+    void crear();
+    void mostrar();
     void search();
-    //void eliminar();
+    void eliminar();
 };
 
 #endif
