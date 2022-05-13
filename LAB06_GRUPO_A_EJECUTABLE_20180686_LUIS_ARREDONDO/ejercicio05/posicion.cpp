@@ -5,8 +5,6 @@
 
 using namespace std;
 
-//int **cmatriz;
-
 Matriz::Matriz(int **_cmatriz, int _buscar) {
     cmatriz = _cmatriz;
     buscar = _buscar;
@@ -15,19 +13,6 @@ Matriz::Matriz(int **_cmatriz, int _buscar) {
 Matriz::~Matriz() {
 
 }
-
-/*void crear() {
-    cmatriz = new int *[3];
-    for(int i = 0; i < 3; i++) {
-        cmatriz[i] = new int[3];
-    }
-    srand(time(NULL));
-    for (int i = 0; i < 3; i++) {
-        for (int j = 0; j < 3; j++) {
-            cmatriz[i][j] = rand() % 10 + 1;         
-        }
-    }
-}*/
 
 void Matriz::crear() {
     cmatriz = new int *[3];
@@ -41,16 +26,6 @@ void Matriz::crear() {
         }
     }
 }
-/*
-void mostrar() {
-    for (int i = 0; i < 3; i++) {
-        for (int j; j < 3; j++) {
-            cout << cmatriz[i][j] << " ";
-        }
-        cout << endl;
-    }
-}
-*/
 
 void Matriz::mostrar() {
     for (int i = 0; i < 3; i++) {
@@ -80,13 +55,6 @@ void Matriz::search() {
         cout << "\nEl numero " << buscar << " no coincide con ningun numero de la matriz.\n";
     }
 }
-
-/*void eliminar() {
-    for (int i = 0; i < 3; i++) {
-        delete [] cmatriz[i];
-    }
-    delete [] cmatriz;
-}*/
 
 void Matriz::eliminar() {
     for (int i = 0; i < 3; i++) {
