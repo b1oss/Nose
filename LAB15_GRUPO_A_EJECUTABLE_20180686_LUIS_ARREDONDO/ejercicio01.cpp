@@ -15,12 +15,21 @@ public:
         std::cout << "\n";
     }
     void ListaPintura() const {
-        std::cout << "\tCOLORES DISPONIBLES\n";
+        if (pintura.size() > 1)
+        {
+            std::cout << "\tCOLORES DISPONIBLES\n";
+        }
         for (size_t i = 0; i < pintura.size(); i++)
         {
-            std::cout << i + 1 << ". " <<  pintura[i] << std::endl;        
+            if (pintura.size() == 1)
+            {
+                std::cout << pintura[i] << std::endl;
+            }
+            else
+            {
+                std::cout << i + 1 << ". " <<  pintura[i] << std::endl;
+            }          
         }
-        std::cout << "\n\n";
     }
 };
 
@@ -207,6 +216,7 @@ void ClienteCode(Director& director) {
     director.set_builder(builder,col);
     Vehiculo* p = builder->GetVehiculo();
     Vehiculo* q = col->GetColor();
+    int opcion;
     ///////////////////////////////////////////////////////////
     std::cout << "\t\tVehiculo Completo\n";
     ////Autopartes
@@ -217,6 +227,53 @@ void ClienteCode(Director& director) {
     director.ColoresPremium();
     q = col->GetColor();
     q->ListaPintura();
+    std::cout << "Default: Blanco\nElija una opcion: ";
+    std::cin >> opcion;
+    switch (opcion)
+    {
+    case 1:
+        col->ColorAzul();
+        q = col->GetColor();
+        std::cout << "Usted eligio el color ";
+        q->ListaPintura();
+        std::cout << std::endl;
+        break;
+    case 2:
+        col->ColorBlanco();
+        q = col->GetColor();
+        std::cout << "Usted eligio el color ";
+        q->ListaPintura();
+        std::cout << std::endl;
+        break;
+    case 3:
+        col->ColorGris();
+        q = col->GetColor();
+        std::cout << "Usted eligio el color ";
+        q->ListaPintura();
+        std::cout << std::endl;
+        break;
+    case 4:
+        col->ColorNegro();
+        q = col->GetColor();
+        std::cout << "Usted eligio el color ";
+        q->ListaPintura();
+        std::cout << std::endl;
+        break;
+    case 5:
+        col->ColorRojo();
+        q = col->GetColor();
+        std::cout << "Usted eligio el color ";
+        q->ListaPintura();
+        std::cout << std::endl;
+        break;
+    default:
+        col->ColorBlanco();
+        q = col->GetColor();
+        std::cout << "Usted eligio el color ";
+        q->ListaPintura();
+        std::cout << std::endl;
+        break;
+    }
     delete p;
     delete q;
     std::cout << "--------------------------------------------" << std::endl;
@@ -227,11 +284,48 @@ void ClienteCode(Director& director) {
     p = builder->GetVehiculo();
     p->ListaComponentes();
     ////Colores
+    ///////////////////////
+    //std::cout << "Elija un color\t1. Azul\t2. Blanco\t3. Gris\t4. Negro\t5. Rojo" << std::endl;
     col->ColorBlanco();
     col->ColorGris();
     col->ColorNegro();
     q = col->GetColor();
     q->ListaPintura();
+    std::cout << "Default: Blanco\nElija una opcion: ";
+    std::cin >> opcion;
+    switch (opcion)
+    {
+    case 1:
+        col->ColorBlanco();
+        q = col->GetColor();
+        std::cout << "Usted eligio el color ";
+        q->ListaPintura();
+        std::cout << std::endl;
+        break;
+    case 2:
+        col->ColorGris();
+        q = col->GetColor();
+        std::cout << "Usted eligio el color ";
+        q->ListaPintura();
+        std::cout << std::endl;
+        break;
+    case 3:
+        col->ColorNegro();
+        q = col->GetColor();
+        std::cout << "Usted eligio el color ";
+        q->ListaPintura();
+        std::cout << std::endl;
+        break;
+    default:
+        col->ColorBlanco();
+        q = col->GetColor();
+        std::cout << "Usted eligio el color ";
+        q->ListaPintura();
+        std::cout << std::endl;
+        break;
+    }
+    ///////////////////////
+    //col->Col
     delete p;
     delete q;
     std::cout << "--------------------------------------------" << std::endl;
@@ -242,6 +336,7 @@ void ClienteCode(Director& director) {
     p = builder->GetVehiculo();
     p->ListaComponentes();
     ////Colores
+    std::cout << "COLOR DISPONIBLE\n";
     col->ColorBlanco();
     q = col->GetColor();
     q->ListaPintura();
