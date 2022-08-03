@@ -12,12 +12,14 @@ tenemos t, el programa imprimirá T.
 */
 #include <iostream>
 
+// Recibe variables numéricas int, double, float
 template <class T>
 class Contenedor
 {
     T elemento;
 
     public:
+    // Retorna el elemento sumado en 1
     Contenedor(T arg) {
         elemento = arg;
     }
@@ -25,6 +27,7 @@ class Contenedor
 };
 
 template <>
+// Clase exclusiva para variables char
 class Contenedor<char>
 {
     char elemento;
@@ -32,6 +35,7 @@ class Contenedor<char>
         Contenedor( char arg) {
             elemento = arg;
         }
+        // Cambia el caracter de minúscula a mayúsula
         char UpperCase() {
             if ((elemento >= 'a') && (elemento <= 'z'))
             {
@@ -42,7 +46,9 @@ class Contenedor<char>
 };
 
 int main() {
+    // Será mandado a "Contenedor"
     Contenedor<int> cint(5);
+    // Será ejecuatdo en "Contenedor<char>"
     Contenedor<char> cchar('t');
     std::cout << cint.add() << std::endl;
     std::cout << cchar.UpperCase() << std::endl;
